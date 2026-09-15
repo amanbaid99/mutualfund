@@ -6,6 +6,7 @@ const registryFacts = [
   { label: 'Registered name', value: site.legalName },
   { label: 'AMFI registration number', value: site.credentials.arn },
   { label: 'EUIN', value: site.credentials.euin },
+  { label: 'NISM certification', value: site.credentials.nismRegistration },
   { label: 'Valid from', value: site.credentials.validFrom },
   { label: 'Valid until', value: site.credentials.validTo },
   { label: 'Registered with', value: 'AMFI, per SEBI regulatory guidelines' },

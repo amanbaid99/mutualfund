@@ -6,7 +6,7 @@ import { ChevronDownIcon } from './Icons'
 const faqs = [
   {
     q: 'What does an AMFI registered mutual fund distributor actually do?',
-    a: `A distributor is registered with AMFI to help you invest in mutual funds: understanding your goals, recommending schemes, completing KYC and onboarding, executing transactions and reviewing your portfolio over time. My registration number is ${site.credentials.arn} and you can verify it on AMFI's own website.`,
+    a: `A distributor is registered with AMFI to help you invest in mutual funds: understanding your goals, recommending schemes, completing KYC and onboarding, executing transactions and reviewing your portfolio over time. My AMFI registration number is ${site.credentials.arn} and my NISM certification is ${site.credentials.nismRegistration}. You can verify the ARN on AMFI's own website.`,
   },
   {
     q: 'What do you charge me?',

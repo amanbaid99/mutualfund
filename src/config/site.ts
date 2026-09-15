@@ -18,7 +18,13 @@ export const site = {
     validFrom: '14 Sep 2026',
     validTo: '09 Sep 2029',
     registeredWith: 'Association of Mutual Funds in India (AMFI)',
-    nismCertified: true,
+
+    /**
+     * NISM certification, the exam an ARN requires.
+     * PAN and the NISM enrolment number are deliberately NOT stored here:
+     * neither is publicly verifiable and both are sensitive identifiers.
+     */
+    nismRegistration: 'NISM-202600163647',
     /** Public AMFI page where anyone can independently verify the ARN. */
     verifyUrl: 'https://www.amfiindia.com/locate-your-nearest-mutual-fund-distributor-details',
     amfiHome: 'https://www.amfiindia.com/',
@@ -43,11 +49,11 @@ export const site = {
   },
 
   /**
-   * Portrait shown in the hero panel. Drop a file into `public/` and set this
-   * to e.g. './aman.jpg'. While it is empty the hero falls back to a designed
-   * credential visual, so the layout never looks unfinished.
+   * Portrait shown in the hero panel, served from `public/`.
+   * The hero falls back to a designed credential card if the file is missing
+   * or fails to load, so the layout is never broken while it is absent.
    */
-  photo: '',
+  photo: './Amanbaid.jpg',
 
   /** Rough response-time promise shown next to the CTA. */
   responseTime: 'Usually replies within a few hours',
