@@ -2,7 +2,10 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    # GitHub's github-pages environment only accepts deployments from the
+    # repository's DEFAULT branch. Both names are listed so this keeps working
+    # if the default branch is later renamed to main.
+    branches: [claude/fervent-cerf-66zkt6, main]
   # Lets you re-deploy from the Actions tab without pushing a commit.
   workflow_dispatch:
 
