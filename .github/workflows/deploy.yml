@@ -46,6 +46,8 @@ jobs:
           touch dist/.nojekyll
           # Serve index.html for unknown paths so deep links do not 404.
           cp dist/index.html dist/404.html
+          # public/README.md exists to guide photo uploads on GitHub, not to ship.
+          rm -f dist/README.md
 
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,10 +1,11 @@
+import { useState } from 'react'
 import { site } from '../config/site'
 import { StatStrip, WhatsAppButton } from './ui'
 import { ShieldCheckIcon } from './Icons'
 
 const heroStats = [
-  { value: site.credentials.arn.replace('ARN-', ''), label: 'AMFI registration no.' },
-  { value: 'NISM', label: 'Series V-A certified' },
+  { value: site.credentials.arn.replace('ARN-', ''), label: 'AMFI registration' },
+  { value: 'NISM', label: 'Certified' },
   { value: '₹0', label: 'You pay me nothing' },
 ]
 
@@ -66,20 +67,45 @@ export function Hero() {
 }
 
 /**
- * Renders the portrait once one is configured; until then it shows a designed
- * ARN credential card so the panel reads as intentional rather than empty.
+ * Renders the portrait when one is present, with the ARN badged over it.
+ * If the file is missing or fails to load it falls back to a designed
+ * credential card, so the panel is never a broken image.
  */
 function HeroVisual() {
-  if (site.photo) {
+  const [photoFailed, setPhotoFailed] = useState(false)
+
+  if (site.photo && !photoFailed) {
     return (
-      <div className="overflow-hidden rounded-card bg-mist-200">
+      <div className="relative overflow-hidden rounded-card bg-mist-200">
         <img
           src={site.photo}
           alt={`${site.legalName}, ${site.role}`}
           width={720}
           height={780}
-          className="h-full w-full object-cover"
+          onError={() => setPhotoFailed(true)}
+          className="aspect-4/5 h-full w-full object-cover"
         />
+
+        {/* Credential badge, so the portrait still carries the proof. */}
+        <div className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 rounded-[0.7rem] bg-navy-900/85 px-5 py-4 text-white backdrop-blur-sm">
+          <span>
+            <span className="block text-sm font-semibold">{site.legalName}</span>
+            <span className="micro mt-0.5 block text-navy-400">{site.role}</span>
+          </span>
+          <span className="shrink-0 text-right">
+            <span className="block font-mono text-sm font-semibold">
+              {site.credentials.arn}
+            </span>
+            <a
+              href={site.credentials.verifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="micro mt-0.5 block text-gold-400 hover:underline"
+            >
+              Verify
+            </a>
+          </span>
+        </div>
       </div>
     )
   }
