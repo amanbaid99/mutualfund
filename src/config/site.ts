@@ -26,7 +26,7 @@ export const site = {
      */
     nismRegistration: 'NISM-202600163647',
     /** Public AMFI page where anyone can independently verify the ARN. */
-    verifyUrl: 'https://www.amfiindia.com/locate-your-nearest-mutual-fund-distributor-details',
+    verifyUrl: 'https://www.amfiindia.com/locate-distributor',
     amfiHome: 'https://www.amfiindia.com/',
   },
 

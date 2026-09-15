@@ -1,6 +1,7 @@
 import { site } from '../config/site'
 import { Button, Section, SectionHeader } from './ui'
 import { CheckIcon, ExternalLinkIcon, ShieldCheckIcon } from './Icons'
+import { CopyArn } from './CopyArn'
 
 const registryFacts = [
   { label: 'Registered name', value: site.legalName },
@@ -57,20 +58,23 @@ export function Credentials() {
               Verify on AMFI
               <ExternalLinkIcon className="h-3.5 w-3.5" />
             </Button>
-            <a
-              href={site.credentials.amfiHome}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="micro inline-flex w-full items-center justify-center gap-2 rounded-btn border border-white/20 px-6 py-3 text-white transition hover:bg-white/10 sm:w-auto"
-            >
-              About AMFI
-            </a>
+            <CopyArn className="w-full sm:w-auto" />
           </div>
 
-          <p className="mt-6 text-xs leading-relaxed text-navy-400">
-            Search <span className="font-semibold text-white">{site.credentials.arn}</span> on the
-            AMFI distributor lookup to see this record on AMFI&rsquo;s own website.
-          </p>
+          {/* Two short steps, because AMFI's lookup opens on an empty form and
+              a visitor who lands there without instructions usually gives up. */}
+          <ol className="mt-6 space-y-1.5 text-xs leading-relaxed text-navy-400">
+            <li>
+              <span className="font-semibold text-white">1.</span> Copy the ARN, then open the
+              AMFI lookup.
+            </li>
+            <li>
+              <span className="font-semibold text-white">2.</span> Paste{' '}
+              <span className="font-mono font-semibold text-white">{site.credentials.arn}</span>{' '}
+              into the ARN field and search. My registration comes up on AMFI&rsquo;s own site,
+              not mine.
+            </li>
+          </ol>
         </div>
 
         {/* What that registration actually protects. */}
