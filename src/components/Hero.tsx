@@ -79,9 +79,15 @@ function HeroVisual() {
       <div className="relative overflow-hidden rounded-card bg-mist-200">
         <img
           src={site.photo}
+          srcSet={`${site.photoSmall} 640w, ${site.photo} 1200w`}
+          sizes="(min-width: 1024px) 550px, 100vw"
           alt={`${site.legalName}, ${site.role}`}
-          width={720}
-          height={780}
+          width={1200}
+          height={1500}
+          // The hero portrait is the largest paint on the page, so it is
+          // fetched eagerly at high priority rather than lazily.
+          fetchPriority="high"
+          decoding="async"
           onError={() => setPhotoFailed(true)}
           className="aspect-4/5 h-full w-full object-cover"
         />

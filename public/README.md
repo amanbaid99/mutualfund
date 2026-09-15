@@ -1,27 +1,21 @@
-# Drop your photo in this folder
+# Published assets
 
-Upload your portrait here and name it exactly **`Amanbaid.jpg`**, so the file
-sits at `public/Amanbaid.jpg`. The hero picks it up automatically on the next
-deploy. Until then the hero shows the ARN credential card instead, so nothing
-looks broken.
+Everything in this folder is copied to the live site as-is, so keep it small.
 
-## How to upload from GitHub in the browser
+| File | What it is |
+| --- | --- |
+| `Amanbaid.jpg` | Hero portrait, 1200x1500, ~155 KB |
+| `Amanbaid-small.jpg` | Same photo at 640x800, ~55 KB, served to phones |
+| `favicon.svg` | Browser tab icon |
+| `robots.txt` | Search engine directives |
 
-1. Open this folder: https://github.com/amanbaid99/mutualfund/tree/main/public
-2. **Add file → Upload files**
-3. Drag in your photo, renamed to `Amanbaid.jpg`
-4. **Commit changes** to `main`
+## Replacing the photo
 
-That push triggers a deploy on its own, so the photo is live in about a minute.
+Do not upload a camera original straight into this folder. A phone photo is
+commonly 5 to 10 MB, and every visitor would download it before seeing your
+face. Put the original in `photos-original/` instead and follow the
+regeneration steps in that folder's README, which crop it to 4:5 and compress
+it to roughly 155 KB.
 
-## What works best
-
-- **Portrait orientation**, roughly 4:5. It is cropped to that ratio.
-- **At least 800 x 1000 px** so it stays sharp on a retina screen.
-- **Under ~500 KB.** Compress it at https://squoosh.app if it is larger,
-  since every visitor downloads this file.
-- **A plain, light background** matches the reference design. Head and
-  shoulders, looking at the camera.
-
-A `.jpg` is expected. To use a `.png` or `.webp` instead, change `photo` in
-`src/config/site.ts` to match the filename.
+If you upload a replacement here directly, keep it under 300 KB, in portrait
+4:5, at least 1200x1500.

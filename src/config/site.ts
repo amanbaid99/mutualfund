@@ -49,11 +49,14 @@ export const site = {
   },
 
   /**
-   * Portrait shown in the hero panel, served from `public/`.
-   * The hero falls back to a designed credential card if the file is missing
-   * or fails to load, so the layout is never broken while it is absent.
+   * Portrait shown in the hero panel, served from `public/`. Both sizes are
+   * generated from photos-original/ (see that folder's README) and cropped to
+   * the 4:5 the hero expects, so the browser never downloads more pixels than
+   * it paints. The hero falls back to a designed credential card if the file
+   * is missing or fails to load, so the layout is never broken.
    */
   photo: './Amanbaid.jpg',
+  photoSmall: './Amanbaid-small.jpg',
 
   /** Rough response-time promise shown next to the CTA. */
   responseTime: 'Usually replies within a few hours',
