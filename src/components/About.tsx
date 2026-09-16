@@ -17,12 +17,19 @@ export function About() {
         <h2 className="mt-4 font-display text-3xl leading-[1.14] font-medium text-balance text-navy-800 sm:text-[2.6rem]">
           Built to Make Investing More Accessible
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-[0.95rem] leading-relaxed text-pretty text-slate-500">
-          I am {site.legalName}, an AMFI registered mutual fund distributor based in Mumbai,
-          holding {site.credentials.arn}. I work with salaried professionals, business owners and
-          families who want to invest properly but do not want to decode fund factsheets on their
-          own. My job is simple: understand where you are going, map the funds that get you there,
-          and stay on the phone with you through every market that tests your nerve.
+      </div>
+
+      {/* This paragraph is the page's introduction to a stranger, so it is set
+          larger and framed rather than left as body copy. */}
+      <div className="mx-auto mt-9 max-w-3xl rounded-card border border-mist-200 bg-mist-50 px-6 py-8 sm:px-10 sm:py-10">
+        <p className="text-base leading-[1.75] text-pretty text-navy-700 sm:text-lg">
+          I am <span className="font-semibold text-navy-800">{site.legalName}</span>, an AMFI
+          registered mutual fund distributor based in Mumbai, holding{' '}
+          <span className="font-semibold text-navy-800">{site.credentials.arn}</span>. I work with
+          salaried professionals, business owners and families who want to invest properly but do
+          not want to decode fund factsheets on their own. My job is simple: understand where you
+          are going, map the funds that get you there, and stay on the phone with you through every
+          market that tests your nerve.
         </p>
       </div>
 
@@ -45,13 +52,17 @@ export function About() {
       </div>
 
       {/* Transparency note: how a distributor is actually paid. Stating this
-          up front is the single biggest trust lever on a page like this. */}
-      <p className="mx-auto mt-12 max-w-2xl border-t border-mist-200 pt-8 text-center text-xs leading-relaxed text-slate-400">
-        <span className="font-semibold text-slate-500">How I get paid:</span> you pay me nothing.
-        As a distributor I receive a trail commission from the asset management company out of the
-        scheme&rsquo;s expense ratio, which is disclosed in every scheme document. I do not charge
-        advisory fees and I never ask clients to transfer money to me.
-      </p>
+          up front is the single biggest trust lever on a page like this, so it
+          is set in the accent colour rather than buried as fine print. */}
+      <div className="mx-auto mt-12 max-w-3xl rounded-card border border-gold-500/35 bg-gold-50 px-6 py-7 sm:px-10 sm:py-8">
+        <p className="micro text-gold-700">How I get paid</p>
+        <p className="mt-3 text-[0.95rem] leading-relaxed text-pretty text-navy-700 sm:text-base">
+          <span className="font-semibold text-navy-800">You pay me nothing.</span> As a distributor
+          I receive a trail commission from the asset management company out of the scheme&rsquo;s
+          expense ratio, which is disclosed in every scheme document. I do not charge advisory fees
+          and I never ask clients to transfer money to me.
+        </p>
+      </div>
     </Section>
   )
 }

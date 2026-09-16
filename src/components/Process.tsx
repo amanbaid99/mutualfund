@@ -33,17 +33,42 @@ export function Process() {
         description="Most people stall because they do not know what happens after they say yes. Here is the whole thing."
       />
 
-      <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {/*
+        A connected timeline rather than four separate cards, so the steps read
+        as one sequence. Each step draws its own connector to the next one, so
+        the line stops at the last dot instead of running off the edge, and the
+        spacing stays correct whatever the grid gap is. The connector is
+        vertical on phones and horizontal from lg up; at sm the grid is two
+        columns, where a connector would imply the wrong reading order, so it
+        is hidden there.
+      */}
+      <ol className="relative mt-12 grid gap-9 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         {steps.map((step, index) => (
-          <li key={step.title} className="rounded-card bg-mist-100 p-7">
-            <span className="font-display text-3xl font-light text-navy-400">
+          <li key={step.title} className="relative pl-10 sm:pl-0 lg:pt-9">
+            {index < steps.length - 1 && (
+              <span
+                aria-hidden="true"
+                className="absolute top-3 -bottom-9 left-[9px] w-px bg-mist-300 sm:hidden lg:top-[9px] lg:-right-8 lg:bottom-auto lg:left-0 lg:block lg:h-px lg:w-auto"
+              />
+            )}
+
+            {/* Rendered after the connector so its white disc masks the line. */}
+            <span
+              aria-hidden="true"
+              className="absolute top-1 left-0 grid h-[19px] w-[19px] place-items-center rounded-full bg-white sm:hidden lg:top-0 lg:grid"
+            >
+              <span className="h-2.5 w-2.5 rounded-full bg-navy-800" />
+            </span>
+
+            <span className="font-display block text-3xl leading-none font-light text-navy-400">
               {String(index + 1).padStart(2, '0')}
             </span>
-            <h3 className="mt-5 text-lg font-medium text-navy-800">{step.title}</h3>
+            <h3 className="mt-4 text-lg font-medium text-navy-800">{step.title}</h3>
             <p className="mt-2.5 text-sm leading-relaxed text-slate-500">{step.body}</p>
           </li>
         ))}
       </ol>
+
     </Section>
   )
 }

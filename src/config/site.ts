@@ -55,8 +55,8 @@ export const site = {
    * it paints. The hero falls back to a designed credential card if the file
    * is missing or fails to load, so the layout is never broken.
    */
-  photo: './Amanbaid.jpg',
-  photoSmall: './Amanbaid-small.jpg',
+  photo: '',
+  photoSmall: '',
 
   /** Rough response-time promise shown next to the CTA. */
   responseTime: 'Usually replies within a few hours',

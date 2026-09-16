@@ -45,19 +45,24 @@ export function SectionHeader({
   title,
   description,
   dark,
+  accent,
   rule = true,
 }: {
   eyebrow: string
   title: ReactNode
   description?: ReactNode
   dark?: boolean
+  /** Recolours the eyebrow and supporting copy for the gold accent panel. */
+  accent?: boolean
   rule?: boolean
 }) {
   return (
     <div className={cx(rule && 'border-b pb-8', dark ? 'border-white/12' : 'border-mist-200')}>
       <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-12">
         <div>
-          <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
+          <p className={cx('micro', accent ? 'text-gold-700' : dark ? 'text-navy-400' : 'text-slate-400')}>
+            {eyebrow}
+          </p>
           <h2
             className={cx(
               'mt-3 max-w-xl text-3xl leading-[1.12] font-medium text-balance sm:text-[2.6rem]',
@@ -70,8 +75,9 @@ export function SectionHeader({
         {description && (
           <p
             className={cx(
-              'max-w-md text-sm leading-relaxed text-pretty lg:pb-2',
-              dark ? 'text-navy-400' : 'text-slate-500',
+              'max-w-md leading-relaxed text-pretty lg:pb-2',
+              accent ? 'text-[0.95rem] text-navy-700' : 'text-sm',
+              dark ? 'text-navy-400' : !accent && 'text-slate-500',
             )}
           >
             {description}

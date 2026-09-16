@@ -6,7 +6,6 @@ import { ShieldCheckIcon } from './Icons'
 const heroStats = [
   { value: site.credentials.arn.replace('ARN-', ''), label: 'AMFI registration' },
   { value: 'NISM', label: 'Certified' },
-  { value: '₹0', label: 'You pay me nothing' },
 ]
 
 export function Hero() {
@@ -54,9 +53,25 @@ export function Hero() {
                 {site.responseTime} &middot; No obligation, no sales pitch.
               </p>
 
+              {/* The one claim no competitor can copy, so it gets its own
+                  accent block rather than a third slot in the stat row. */}
+              <div className="mt-8 flex items-center gap-4 rounded-card border border-gold-500/35 bg-gold-50 px-5 py-4 sm:px-6">
+                <span className="font-display text-3xl font-semibold text-gold-700 sm:text-4xl">
+                  ₹0
+                </span>
+                <span className="border-l border-gold-500/30 pl-4">
+                  <span className="block text-sm font-semibold text-navy-800 sm:text-base">
+                    You pay me nothing
+                  </span>
+                  <span className="mt-0.5 block text-xs leading-relaxed text-slate-600">
+                    No advisory fee, no charges. The fund house pays me a trail commission.
+                  </span>
+                </span>
+              </div>
+
               <StatStrip
                 items={heroStats}
-                className="mt-9 -ml-5 border-t border-navy-800/10 pt-3"
+                className="mt-6 -ml-5 border-t border-navy-800/10 pt-3"
               />
             </div>
           </div>

@@ -2,7 +2,7 @@
 
 /*
  * Design tokens, derived from the FINRE reference: a near-monochrome navy
- * palette on white, cool-grey panels, gold reserved for rating stars only.
+ * palette on white, cool-grey panels, with gold as a sparing accent.
  * Components reference these names, never raw hex values.
  */
 @theme {
@@ -29,7 +29,14 @@
   --color-haze-100: #eef0f4;
   --color-haze-200: #dfe4ec;
 
+  /* Accent, used sparingly to lift the few lines that carry the most weight. */
+  --color-gold-50: #fffaeb;
+  --color-gold-100: #fdf0cd;
+  --color-gold-200: #fbe3a2;
   --color-gold-400: #f5b544;
+  --color-gold-500: #e09b1e;
+  --color-gold-600: #b87910;
+  --color-gold-700: #8f5d0d;
 
   --color-whatsapp: #25d366;
   --color-whatsapp-dark: #1da851;

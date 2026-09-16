@@ -41,16 +41,22 @@ export function Calculators() {
 
   return (
     <Section id="calculators" tone="mist">
-      <SectionHeader
-        eyebrow="Calculators"
-        title={
-          <>
-            Run the Numbers
-            <br className="hidden sm:block" /> Before You Commit.
-          </>
-        }
-        description="Free, no sign-up, nothing stored. Work out your own figures first, then send them to me on WhatsApp and we start the conversation from real numbers."
-      />
+      {/* The header sits in an accent panel so the free, no-sign-up promise
+          reads as a headline rather than as fine print beside the heading. */}
+      <div className="rounded-panel border border-gold-500/35 bg-gold-50 px-6 py-8 sm:px-10 sm:py-10">
+        <SectionHeader
+          eyebrow="Free calculators"
+          title={
+            <>
+              Run the Numbers
+              <br className="hidden sm:block" /> Before You Commit.
+            </>
+          }
+          description="Free, no sign-up, nothing stored. Work out your own figures first, then send them to me on WhatsApp and we start the conversation from real numbers."
+          accent
+          rule={false}
+        />
+      </div>
 
       <div
         role="tablist"
